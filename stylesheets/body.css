@@ -5,26 +5,22 @@ body {
    margin-top:0;
    margin-right:0;
    margin-bottom:0;
+   min-width: 800px;
 }
 #subnav {
     clear           :both;
 	float           :left;
 	width           :100%;
-    background-color:#DFE8F6;
-    padding         :1em 0 1em;
+    font-size       :14px;
+    font-weight     :bold;
+    line-height     :2em;
+    margin          :0;
+    padding         :4px 0 4px 31px;
 }
 #inner_container {
     margin          :0 auto;
     padding         :0 10px;
     width           :100%;
-}
-#subnav h3 {
-    color           :#336699;
-    font-size       :14px;
-    line-height     :2em;
-    margin          :0;
-    padding         :0 0 0 25px;
-    
 }
 /* column container */
 .wrapper {
@@ -335,4 +331,13 @@ td.warning, th.warning {
 }
 #pagination-digg a:hover{
 	border:solid 1px #0e509e;
+}
+/* old stuff */
+.header_class {
+    background-color: #4E387E;
+    color: #FFFFFF;
+}
+.header_top_link , .header_top_link a{
+    color: #EAE884;
+    font-size: 11px;
 }

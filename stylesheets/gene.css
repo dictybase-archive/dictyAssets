@@ -318,7 +318,7 @@ div#dicty-domain-div {
 	 background-position: 50% 50%;
 }
 
-div.dicty-gbrowse-div {
+div.dicty-gbrowse-div, div.dicty-gbrowse-div img {
 	 background-image: url(../images/ajax-loader2.gif);
 	 background-repeat: no-repeat;
 	 background-position: 50% 50%;
