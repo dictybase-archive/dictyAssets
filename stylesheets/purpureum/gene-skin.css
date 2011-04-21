@@ -5,7 +5,7 @@
 }
 /* title column */
 .content_table_title, .content_table_second_title {
-	background      : #dfe1f6;
+	 background      : #dfe1f6;
     border-bottom   : 1px dotted #a8a3e9;
     border-right    : 1px dotted #a8a3e9;  
 }
@@ -36,4 +36,4 @@
     background      :#dfe1f6;
 }
 .yui-skin-sam .general th, .yui-skin-sam .general th a  {
-    background      :#7183B1;    
+    background      :#7173a1;    
