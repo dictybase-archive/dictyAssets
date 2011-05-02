@@ -244,6 +244,8 @@
             var parent = Dom.getAncestorByTagName(el, 'div');
 
             if (prefilledSequence !== '') {
+                console.log('now here');
+
                 var filter = prefilledSequence.match('Protein') ? 'protein': 'DNA';
                 this.renderPrograms(filter);
                 this.renderDatabases(filter);
@@ -251,13 +253,15 @@
                 var defaultProgram = prefilledSequence.match('Protein') ? 'blastp': 'blastn';
                 this.selectDropdownValue(this.blastProgramDropDown, defaultProgram);
                 this.renderDatabases();
+                
+                var defaultValue = defaultProgram == 'blastn' ? '11': '3';
+                this.selectDropdownValue(this.wordSizeDropDown, defaultValue);
+                
                 //var defaultDatabase =
                 //prefilledSequence.match('Genomic') ? 'dictyBase Genomic Sequences - DNA':
                 //prefilledSequence.match('coding') || prefilledSequence.match('transcript') ? 'dictyBase Coding Sequences - DNA': 'unselected';
                 //adjustDatabaseDropdown(defaultProgram);
                 //selectDropDown(blastDatabaseDropDown, defaultDatabase);
-                //defaultValue = defaultProgram == 'blastn' ? '11': '3';
-                //selectDropDown(wordSizeDropDown, defaultValue);
             }
             Dom.removeClass(parent, 'hidden');
         }        
