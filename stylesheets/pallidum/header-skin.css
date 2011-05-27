@@ -16,3 +16,6 @@
 .yui-skin-sam #container-top #container-help div{
     background      :#DFE8F6;
 }
+.yui-skin-sam #container-top #menu-top {
+    min-width       :400px;
+}

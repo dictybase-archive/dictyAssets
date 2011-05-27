@@ -34,7 +34,7 @@ body {
     vertical-align  :bottom;
 }
 .yui-skin-sam #container-top #menu-top{
-/*    width           :580px; */
+    min-width       :580px;
 }
 .yui-skin-sam .yuimenubaritem .yuimenubaritemlabel{
     border          :0px none;
@@ -53,7 +53,7 @@ body {
     font-weight     :bold;
     line-height     :32px;
     border          :0px none;
-/*    width           :650px; */
+    min-width       :650px;
 }
 .yui-skin-sam .yuimenubarnav .yuimenubaritemlabel-hassubmenu-selected{
     color           :#999;
