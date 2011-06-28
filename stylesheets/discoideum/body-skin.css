@@ -18,3 +18,22 @@
 	background: transparent url(/inc/images/waves_top.gif) no-repeat scroll top left;
 	height:500px;
 }
+/* title column */
+.content_table_title, .content_table_second_title {
+	background      : #DFE8F6;
+    border-color    : #A3BAE9;
+}
+/* section headers */
+.content_table_header {
+	color           : #FFFFFF;
+	background      : #4C5E81;
+}
+/* row divider */
+.content_table_data {
+    border-color    : #A3BAE9;
+}
+/* old stuff */
+.header_class {
+    background-color: #4b5f81;
+    color: #FFFFFF;
+}

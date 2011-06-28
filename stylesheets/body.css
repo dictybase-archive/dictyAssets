@@ -332,12 +332,29 @@ td.warning, th.warning {
 #pagination-digg a:hover{
 	border:solid 1px #0e509e;
 }
-/* old stuff */
-.header_class {
-    background-color: #4E387E;
-    color: #FFFFFF;
-}
 .header_top_link , .header_top_link a{
     color: #EAE884;
     font-size: 11px;
+}
+
+/* tables */
+.content_table_title, .content_table_second_title {    
+    vertical-align  : top;
+    border-style    : none none dotted dotted;
+    border-width    : medium medium 1px 1px;
+    padding         : 5px 5px 5px 7px;
+}
+.content_table_title {
+    width           : 20%;
+}
+.content_table_second_title {
+    border-left     : 1px dotted #A3BAE9; 
+    width           : 10%;
+}
+.content_table_data {
+    background-color: #fff;
+    padding         : 5px 7px;  
+    vertical-align  : top;
+    border-style    : none dotted dotted;
+    border-width    : medium 1px 1px;
 }

@@ -130,25 +130,6 @@ yui-history-iframe {
 	color           : #CC0099;
 	text-decoration : none;
 }
-
-.content_table_title, .content_table_second_title {
-    padding         : 5px 5px 5px 7px;       
-    vertical-align  : top;
-}
-.content_table_title {
-    width           : 20%;
-}
-.content_table_second_title {
-    border-left     : 1px dotted #A3BAE9; 
-    width           : 10%;
-}
-
-.content_table_data {
-    background-color: #fff;
-    padding         : 5px 7px;  
-    vertical-align  : top;
-}
-
 ul.yui-nav li span.accordionHelpItem {
     background  :transparent url(../images/sprite-toolbar.gif) no-repeat scroll -1px -46px;
     border: 1px solid #999;
