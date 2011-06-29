@@ -3,18 +3,13 @@
     color           :#336699;
 }
 .threecol {
-	background: #fbf8fa;	/* #f3f2ff; left and right columns background colour */
+	background: #FAF7F9;	/* #f3f2ff; left and right columns background colour */
 }
 .threecol .wrapper-columns {
-	right:75%;          /* width of the middle column */
-	background: transparent url(../../images/fasciculatum/waves_bottom.gif) no-repeat scroll;
-	background-position: 103% 100%;	
+	background-image: url(../../images/fasciculatum/waves_bottom.gif);
 }
 .threecol .column-right {	
-	width:5%;          /* Width of right column content (column width minus padding on either side) */
-	left:80%;			/* Please make note of the brackets here: (100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding) */  
-	background: transparent url(../../images/fasciculatum/waves_top.gif) no-repeat scroll top left;
-	height:500px;
+	background-image: url(../../images/fasciculatum/waves_top.gif);
 }
 /* title column */
 .content_table_title, .content_table_second_title {
@@ -39,5 +34,5 @@
     background-color: #936f84;
 }
 .threecol-wide {
-    background: none repeat scroll 0 0 #fbf8fa;
+    background: none repeat scroll 0 0 #FAF7F9;
 }

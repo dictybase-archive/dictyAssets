@@ -26,10 +26,10 @@ div#bottom-div{
 	background: #f3f2ff;	/* #f3f2ff; left and right columns background colour */
 }
 .threecol .wrapper-columns {
-	background: transparent url(../../images/purpureum/waves_bottom.gif) no-repeat scroll;
+	background-image: url(../../images/purpureum/waves_bottom.gif);
 }
 .threecol .column-right {	
-	background: transparent url(../../images/purpureum/waves_top.gif) no-repeat scroll top left;
+	background-image: url(../../images/purpureum/waves_top.gif);
 }
 /* not-active tabs settings */
 .yui-skin-sam .yui-navset .content_tab .yui-nav a,
