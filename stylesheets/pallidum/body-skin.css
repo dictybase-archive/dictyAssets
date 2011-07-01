@@ -36,3 +36,7 @@
 .threecol-wide {
     background: none repeat scroll 0 0 #edfafa;
 }
+div#species-image img{
+    margin-top: 20px;
+    height: 200px;
+}

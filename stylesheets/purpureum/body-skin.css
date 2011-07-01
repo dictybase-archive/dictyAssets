@@ -2,20 +2,6 @@
     background-color:#dfe1f6;
     color           :#524c81;
 }
-#main-info {
-    width : 75%;
-    padding-right : 10px;
-    float : left;
-}
-div#species-image{
-    float:left;
-    font-size:10px;
-    width:20%;
-}
-div#bottom-div{
-    clear:both;
-    font-size : 11px;
-}
 .yui-skin-sam .yui-navset .yui-nav a:hover,
 .yui-skin-sam .yui-navset .yui-nav a:focus {
     /* tab selection */
