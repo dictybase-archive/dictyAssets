@@ -351,13 +351,14 @@
     YAHOO.Dicty.Data.Format.prototype.formatSelector = function(options, action, selectorClass) {
         var selectOptions = options,
         optionSt = '<option value=',
+        optionName = ' name=', 
         optionEnd = ' </option>',
         ID = Math.random(),
         selectID = ID + '_select',
         selectorHTML = '<select id="' + selectID + '">';
 
         for (i in selectOptions) {
-            selectorHTML += optionSt + '"' + selectOptions[i] + '">' + selectOptions[i] + optionEnd;
+            selectorHTML += optionSt + '"' + selectOptions[i][0] + '"' + optionName + '"' + selectOptions[i][1] + '">' + selectOptions[i] + optionEnd;
         }
         selectorHTML += '</select>';
 
@@ -380,6 +381,9 @@
     YAHOO.Dicty.Data.Format.prototype.appendSelectorValue = function(elem) {
         var parent = Dom.getAncestorByClassName(elem, 'sequence_selector');
         var selector = Dom.getFirstChild(parent);
+        if (elem.name == 'getfasta') {
+        	 return encodeURIComponent(selector.options[selector.selectedIndex].name);	
+        }
         var value = selector.options[selector.selectedIndex].value;
         return elem.name + Appender + encodeURIComponent(value);
     };
