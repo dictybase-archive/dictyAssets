@@ -358,7 +358,7 @@
         selectorHTML = '<select id="' + selectID + '">';
 
         for (i in selectOptions) {
-            selectorHTML += optionSt + '"' + selectOptions[i][0] + '"' + optionName + '"' + selectOptions[i][1] + '">' + selectOptions[i] + optionEnd;
+            selectorHTML += optionSt + '"' + selectOptions[i][0] + '"' + optionName + '"' + selectOptions[i][1] + '">' + selectOptions[i][0] + optionEnd;
         }
         selectorHTML += '</select>';
 
