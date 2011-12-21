@@ -6,7 +6,7 @@
 .yui-skin-sam .yui-navset .yui-nav .selected a,
 .yui-skin-sam .yui-navset .yui-nav .selected a:focus, /* no focus effect for selected */
 .yui-skin-sam .yui-navset .yui-nav .selected a:hover { /* no hover effect for selected */
-    background      :#6f465e url(/assets/images/fasciculatum/sprite.gif) repeat-x scroll 0 -454px; 
+    background      :#6f465e url(../../images/fasciculatum/sprite.gif) repeat-x scroll 0 -454px; 
 }
 /* not-active tabs settings */
 .yui-skin-sam .yui-navset .content_tab .yui-nav a,
@@ -17,6 +17,7 @@
 .yui-skin-sam .yui-navset .yui-navset-top .yui-nav a {
     /* not-active tabs settings */
     background      : #eadfe5;
+}
 .yui-skin-sam .general th, .yui-skin-sam .general th a  {
     background      :#7183b1;    
 }

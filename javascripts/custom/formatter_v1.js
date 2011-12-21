@@ -446,14 +446,14 @@
             '<span id="' + filterId + '"></span>' +
             '<span id="' + clearId + '"></span>' +
             '</div>';
-            tdata.filter = new YAHOO.widget.Button({
-                container: filterId,
-                label: 'Filter',
-                type: 'button'
-            });
             tdata.clear = new YAHOO.widget.Button({
                 container: clearId,
                 label: 'Clear',
+                type: 'button'
+            });
+						tdata.filter = new YAHOO.widget.Button({
+                container: filterId,
+                label: 'Filter',
                 type: 'button'
             });
             tdata.input = inputId;
