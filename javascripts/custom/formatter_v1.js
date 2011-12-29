@@ -358,7 +358,7 @@
         selectorHTML = '<select id="' + selectID + '">';
 
         for (i in selectOptions) {
-            selectorHTML += optionSt + '"' + selectOptions[i][0] + '"' + optionName + '"' + selectOptions[i][1] + '">' + selectOptions[i][0] + optionEnd;
+            selectorHTML += optionSt + '"' + selectOptions[i][1] + '"' + optionName + '"' + selectOptions[i][1] + '">' + selectOptions[i][0] + optionEnd;
         }
         selectorHTML += '</select>';
 
@@ -382,7 +382,7 @@
         var parent = Dom.getAncestorByClassName(elem, 'sequence_selector');
         var selector = Dom.getFirstChild(parent);
         if (elem.name == 'getfasta') {
-        	 return encodeURIComponent(selector.options[selector.selectedIndex].name);	
+        	 return location.protocol + '//' + location.host + selector.options[selector.selectedIndex].value;	
         }
         var value = selector.options[selector.selectedIndex].value;
         return elem.name + Appender + encodeURIComponent(value);
