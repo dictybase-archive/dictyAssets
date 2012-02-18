@@ -99,7 +99,7 @@
                 Dom.setStyle(imageId + '_blink', 'visibility', 'hidden');
                 Dom.get(imageId).border = 1;
                 Dom.setStyle(imageId, 'visibility', 'visible');
-                Dom.setStyle(imageId, 'width', gbrowseImg.width);
+                Dom.setStyle(imageId, 'width', gbrowseImg.width + 'px');
                 Dom.setStyle(imageId, 'height', gbrowseImg.height + 'px');
                 Dom.setStyle(gbrowseDiv, 'height', gbrowseImg.height + 'px');
                 var currHeight = ancestor.scrollHeight;
