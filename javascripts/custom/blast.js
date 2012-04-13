@@ -176,20 +176,14 @@
         values.push('unselected');
 
         function compareOrganisms(a, b) {
-            var genusA = a.genus || '', 
-                genusB = b.genus || '',
-                nameA = genusA + ' ' + a.species,
-                nameB = genusB + ' ' + b.species;
-                
-            if (nameA < nameB) {return -1}
-            if (nameA > nameB) {return 1}
+            if (a.display < b.display) {return -1}
+            if (a.display > b.display) {return 1}
             return 0;
         }
 
         for (i in organisms.sort(compareOrganisms)) {
-            var genus = organisms[i].genus ? organisms[i].genus : '';
-            options.push( genus + ' ' + organisms[i].species);
-            values.push(organisms[i].species);
+            options.push( organisms[i].display);
+            values.push(organisms[i].display);
         }
         this.initDropdown(this.blastOrganismDropDown, options, values);
         this.selectDropdownValue(this.blastOrganismDropDown, 'discoideum');
