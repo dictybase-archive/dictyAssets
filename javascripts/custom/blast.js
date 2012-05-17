@@ -148,12 +148,12 @@
         if (!type || type.match('unselected')){
             type = '';
         } 
-        
+
         var organism = this.blastOrganismDropDown.options[this.blastOrganismDropDown.selectedIndex].value;
         if (organism.match('unselected')){
             organism = '';
         }
-    
+
         for (i in databases) {
             if (databases[i].type.match(type) && databases[i].desc.match(organism)) {
                 options.push(databases[i].desc + ' - ' + databases[i].type);
@@ -183,7 +183,7 @@
 
         for (i in organisms.sort(compareOrganisms)) {
             options.push( organisms[i].display);
-            values.push(organisms[i].display);
+            values.push(organisms[i].common_name);
         }
         this.initDropdown(this.blastOrganismDropDown, options, values);
         this.selectDropdownValue(this.blastOrganismDropDown, 'discoideum');
@@ -238,7 +238,6 @@
             var parent = Dom.getAncestorByTagName(el, 'div');
 
             if (prefilledSequence !== '') {
-                console.log('now here');
 
                 var filter = prefilledSequence.match('Protein') ? 'protein': 'DNA';
                 this.renderPrograms(filter);
