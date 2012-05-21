@@ -522,15 +522,13 @@
             resultWindow.document.close();
                         
             // send multiform post. 
-            YAHOO.util.Connect.setForm(this.mainForm.id, true, true);            
+            //YAHOO.util.Connect.setForm(this.mainForm.id, true, true);            
             YAHOO.util.Connect.asyncRequest('POST', this.mainForm.action,
             {
-                upload: function(obj) {
+                success: function(obj) {
                     // have to do it twice: for some reason in ie <pre.+?>|<\/pre> gerex wipes out whole string
-                    var results_file = obj.responseText.replace(/<pre>|<\/pre>/ig,'');
-                    if (results_file.match(/pre/i)){
-                        results_file = results_file.replace(/<pre.+?>|<\/pre>/ig,'');
-                    }
+                    var data = YAHOO.lang.JSON.parse(obj.responseText);
+                    var results_file = data.file;
                     if (results_file.match(/sorry|exception|unavailable/i)){
                         this.warning.innerHTML = results_file;
                         Dom.addClass(this.warning.id, 'warning');
