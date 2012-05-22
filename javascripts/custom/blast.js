@@ -519,30 +519,18 @@
           
             var resultWindow = window.open();
             resultWindow.document.write('Please wait for results to be loaded');
-            resultWindow.document.close();
-                        
-            // send multiform post. 
-            //YAHOO.util.Connect.setForm(this.mainForm.id, true, true);            
             YAHOO.util.Connect.asyncRequest('POST', this.mainForm.action,
             {
                 success: function(obj) {
-                    // have to do it twice: for some reason in ie <pre.+?>|<\/pre> gerex wipes out whole string
                     var data = YAHOO.lang.JSON.parse(obj.responseText);
-                    var results_file = data.file;
-                    if (results_file.match(/sorry|exception|unavailable/i)){
-                        this.warning.innerHTML = results_file;
-                        Dom.addClass(this.warning.id, 'warning');
-                        Dom.removeClass(this.warning.id, 'hidden');
-                        
-                        resultWindow.document.write(results_file);
-                        resultWindow.document.close();
-                    }
-                    else {
-                        this.results_file = results_file;
-                        this.renderResultsWindow(resultWindow);
-                    }
+                    this.results_file = data.file;
+                    this.renderResultsWindow(resultWindow);
+                    
                 },
-                failure: this.onFailure,
+                failure: function(obj) {
+                   resultWindow.document.write(obj.responseText);
+                   resultWindow.document.close();
+                }, 
                 scope: this
             }, postData);
         }
@@ -557,8 +545,9 @@
             '</form>'; 
           
         resultWindow.document.write(form);
-        resultWindow.document.close();
+        //resultWindow.document.close();
         resultWindow.document.forms.blast_report.submit();         
+        resultWindow.document.close();
     }
     
     YAHOO.Dicty.BLAST.prototype.runNcbiBlast = function() {
