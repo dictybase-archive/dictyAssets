@@ -66,8 +66,7 @@
 
 table.display thead th {
 	padding: 3px 0px 3px 10px;
-	cursor: pointer;
-	* cursor: hand;
+	cursor: default; /* hand=pointer; arrow=default */
 }
 
 div.dataTables_wrapper .ui-widget-header {
@@ -82,6 +81,7 @@ table.display thead th div.DataTables_sort_wrapper {
 	position: relative;
 	padding-right: 20px;
 	padding-right: 20px;
+	cursor: default;
 }
 
 table.display thead th div.DataTables_sort_wrapper span {
@@ -89,6 +89,7 @@ table.display thead th div.DataTables_sort_wrapper span {
 	top: 50%;
 	margin-top: -8px;
 	right: 0;
+	cursor: default;
 }
 
 
