@@ -159,6 +159,10 @@
                 options.push(databases[i].desc + ' - ' + databases[i].type);
                 values.push(databases[i].name);
             }
+            if (databases[i].type.match(type) && databases[i].name.match('all')) {
+                options.push(databases[i].desc + ' - ' + databases[i].type);
+                values.push(databases[i].name);
+            }
         }
         if (options.length > 1){
             options.unshift('-- Please Select a Database --');
