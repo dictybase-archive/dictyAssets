@@ -159,7 +159,7 @@
                 options.push(databases[i].desc + ' - ' + databases[i].type);
                 values.push(databases[i].name);
             }
-            if (databases[i].type.match(type) && databases[i].name.match('all')) {
+            if (databases[i].type.match(type) && databases[i].name.match(/^all/)) {
                 options.push(databases[i].desc + ' - ' + databases[i].type);
                 values.push(databases[i].name);
             }
@@ -178,6 +178,8 @@
 
         options.push('-- Please Select an Organism --');
         values.push('unselected');
+        options.push('All');
+        values.push('All');
 
         function compareOrganisms(a, b) {
             if (a.display < b.display) {return -1}
@@ -189,8 +191,6 @@
             options.push( organisms[i].display);
             values.push(organisms[i].common_name);
         }
-        options.push('All');
-        values.push('All');
         this.initDropdown(this.blastOrganismDropDown, options, values);
         this.selectDropdownValue(this.blastOrganismDropDown, 'discoideum');
     }
