@@ -189,6 +189,8 @@
             options.push( organisms[i].display);
             values.push(organisms[i].common_name);
         }
+        options.push('All');
+        values.push('All');
         this.initDropdown(this.blastOrganismDropDown, options, values);
         this.selectDropdownValue(this.blastOrganismDropDown, 'discoideum');
     }
