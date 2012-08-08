@@ -323,8 +323,8 @@
                 		//this logic mostly for blast loader
                 		//it gets the basic url and appends the primary and sequence type
                 		//e.g: /tools/blast?noheader=true& : primary_id=DDB0231257&sequence=Protein
-                    var values = tabPath.split('&');
-                    var embedSrc = activeTab.get('source').split('&')[0] + '&' + values[1] + '&' + values[2]; 
+                    var values = tabPath.split('?');
+                    var embedSrc = activeTab.get('source').split('&')[0] + '&' + values[1]; 
                     activeTab.setAttributeConfig('embedUrl', {
                         value:  embedSrc
                     });
@@ -384,8 +384,13 @@
         if (elem.name == 'getfasta') {
         	 return location.protocol + '//' + location.host + selector.options[selector.selectedIndex].value;	
         }
-        var value = selector.options[selector.selectedIndex].value;
-        return elem.name + Appender + encodeURIComponent(value);
+        else if(elem.value == 'BLAST') {
+           return elem.name + Appender + encodeURIComponent(selector.options[selector.selectedIndex].text);
+        }
+        else {
+           var value = selector.options[selector.selectedIndex].value;
+           return elem.name + Appender + encodeURIComponent(value);
+        }
     };
 
     YAHOO.Dicty.Data.Format.prototype.formatTable = function(data) {
