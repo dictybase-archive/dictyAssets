@@ -145,9 +145,9 @@
                 continue;
             }
         }
-        if (!type || type.match('unselected')){
-            type = '';
-        } 
+    //    if (!type || type.match('unselected')){
+     //       type = '';
+      //  } 
 
         var organism = this.blastOrganismDropDown.options[this.blastOrganismDropDown.selectedIndex].value;
         if (organism.match('unselected')){
@@ -155,9 +155,19 @@
         }
 
         for (i in databases) {
-            if (databases[i].type.match(type) && databases[i].desc.match(organism)) {
-                options.push(databases[i].desc + ' - ' + databases[i].type);
-                values.push(databases[i].name);
+            if (i == organism) {
+               for (y in databases[i]) {
+                  if (type) {
+                    if (type == databases[i][y].type) {
+                       options.push(databases[i][y].desc + ' - ' + databases[i][y].type);
+                       values.push(databases[i][y].name);
+                    }
+                  }
+                  else {
+                       options.push(databases[i][y].desc + ' - ' + databases[i][y].type);
+                       values.push(databases[i][y].name);
+                  }
+               }
             }
         }
         if (options.length > 1){
@@ -174,6 +184,8 @@
 
         options.push('-- Please Select an Organism --');
         values.push('unselected');
+        options.push('All');
+        values.push('all');
 
         function compareOrganisms(a, b) {
             if (a.display < b.display) {return -1}
