@@ -99,7 +99,7 @@
                 Dom.setStyle(imageId + '_blink', 'visibility', 'hidden');
                 Dom.get(imageId).border = 1;
                 Dom.setStyle(imageId, 'visibility', 'visible');
-                Dom.setStyle(imageId, 'width', gbrowseImg.width);
+                Dom.setStyle(imageId, 'width', gbrowseImg.width + 'px');
                 Dom.setStyle(imageId, 'height', gbrowseImg.height + 'px');
                 Dom.setStyle(gbrowseDiv, 'height', gbrowseImg.height + 'px');
                 var currHeight = ancestor.scrollHeight;
@@ -323,8 +323,8 @@
                 		//this logic mostly for blast loader
                 		//it gets the basic url and appends the primary and sequence type
                 		//e.g: /tools/blast?noheader=true& : primary_id=DDB0231257&sequence=Protein
-                    var values = tabPath.split('&');
-                    var embedSrc = activeTab.get('source').split('&')[0] + '&' + values[1] + '&' + values[2]; 
+                    var values = tabPath.split('?');
+                    var embedSrc = activeTab.get('source').split('&')[0] + '&' + values[1]; 
                     activeTab.setAttributeConfig('embedUrl', {
                         value:  embedSrc
                     });
@@ -351,13 +351,14 @@
     YAHOO.Dicty.Data.Format.prototype.formatSelector = function(options, action, selectorClass) {
         var selectOptions = options,
         optionSt = '<option value=',
+        optionName = ' name=', 
         optionEnd = ' </option>',
         ID = Math.random(),
         selectID = ID + '_select',
         selectorHTML = '<select id="' + selectID + '">';
 
         for (i in selectOptions) {
-            selectorHTML += optionSt + '"' + selectOptions[i] + '">' + selectOptions[i] + optionEnd;
+            selectorHTML += optionSt + '"' + selectOptions[i][1] + '"' + optionName + '"' + selectOptions[i][1] + '">' + selectOptions[i][0] + optionEnd;
         }
         selectorHTML += '</select>';
 
@@ -380,8 +381,16 @@
     YAHOO.Dicty.Data.Format.prototype.appendSelectorValue = function(elem) {
         var parent = Dom.getAncestorByClassName(elem, 'sequence_selector');
         var selector = Dom.getFirstChild(parent);
-        var value = selector.options[selector.selectedIndex].value;
-        return elem.name + Appender + encodeURIComponent(value);
+        if (elem.name == 'getfasta') {
+        	 return location.protocol + '//' + location.host + selector.options[selector.selectedIndex].value;	
+        }
+        else if(elem.value == 'BLAST') {
+           return elem.name + Appender + encodeURIComponent(selector.options[selector.selectedIndex].text);
+        }
+        else {
+           var value = selector.options[selector.selectedIndex].value;
+           return elem.name + Appender + encodeURIComponent(value);
+        }
     };
 
     YAHOO.Dicty.Data.Format.prototype.formatTable = function(data) {
@@ -442,14 +451,14 @@
             '<span id="' + filterId + '"></span>' +
             '<span id="' + clearId + '"></span>' +
             '</div>';
-            tdata.filter = new YAHOO.widget.Button({
-                container: filterId,
-                label: 'Filter',
-                type: 'button'
-            });
             tdata.clear = new YAHOO.widget.Button({
                 container: clearId,
                 label: 'Clear',
+                type: 'button'
+            });
+						tdata.filter = new YAHOO.widget.Button({
+                container: filterId,
+                label: 'Filter',
                 type: 'button'
             });
             tdata.input = inputId;

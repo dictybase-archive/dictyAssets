@@ -145,19 +145,29 @@
                 continue;
             }
         }
-        if (!type || type.match('unselected')){
-            type = '';
-        } 
-        
+    //    if (!type || type.match('unselected')){
+     //       type = '';
+      //  } 
+
         var organism = this.blastOrganismDropDown.options[this.blastOrganismDropDown.selectedIndex].value;
         if (organism.match('unselected')){
             organism = '';
         }
-    
+
         for (i in databases) {
-            if (databases[i].type.match(type) && databases[i].desc.match(organism)) {
-                options.push(databases[i].desc + ' - ' + databases[i].type);
-                values.push(databases[i].name);
+            if (i == organism) {
+               for (y in databases[i]) {
+                  if (type) {
+                    if (type == databases[i][y].type) {
+                       options.push(databases[i][y].desc + ' - ' + databases[i][y].type);
+                       values.push(databases[i][y].name);
+                    }
+                  }
+                  else {
+                       options.push(databases[i][y].desc + ' - ' + databases[i][y].type);
+                       values.push(databases[i][y].name);
+                  }
+               }
             }
         }
         if (options.length > 1){
@@ -174,22 +184,18 @@
 
         options.push('-- Please Select an Organism --');
         values.push('unselected');
+        options.push('All');
+        values.push('all');
 
         function compareOrganisms(a, b) {
-            var genusA = a.genus || '', 
-                genusB = b.genus || '',
-                nameA = genusA + ' ' + a.species,
-                nameB = genusB + ' ' + b.species;
-                
-            if (nameA < nameB) {return -1}
-            if (nameA > nameB) {return 1}
+            if (a.display < b.display) {return -1}
+            if (a.display > b.display) {return 1}
             return 0;
         }
 
         for (i in organisms.sort(compareOrganisms)) {
-            var genus = organisms[i].genus ? organisms[i].genus : '';
-            options.push( genus + ' ' + organisms[i].species);
-            values.push(organisms[i].species);
+            options.push( organisms[i].display);
+            values.push(organisms[i].common_name);
         }
         this.initDropdown(this.blastOrganismDropDown, options, values);
         this.selectDropdownValue(this.blastOrganismDropDown, 'discoideum');
@@ -244,7 +250,6 @@
             var parent = Dom.getAncestorByTagName(el, 'div');
 
             if (prefilledSequence !== '') {
-                console.log('now here');
 
                 var filter = prefilledSequence.match('Protein') ? 'protein': 'DNA';
                 this.renderPrograms(filter);
@@ -526,32 +531,18 @@
           
             var resultWindow = window.open();
             resultWindow.document.write('Please wait for results to be loaded');
-            resultWindow.document.close();
-                        
-            // send multiform post. 
-            YAHOO.util.Connect.setForm(this.mainForm.id, true, true);            
             YAHOO.util.Connect.asyncRequest('POST', this.mainForm.action,
             {
-                upload: function(obj) {
-                    // have to do it twice: for some reason in ie <pre.+?>|<\/pre> gerex wipes out whole string
-                    var results_file = obj.responseText.replace(/<pre>|<\/pre>/ig,'');
-                    if (results_file.match(/pre/i)){
-                        results_file = results_file.replace(/<pre.+?>|<\/pre>/ig,'');
-                    }
-                    if (results_file.match(/sorry|exception|unavailable/i)){
-                        this.warning.innerHTML = results_file;
-                        Dom.addClass(this.warning.id, 'warning');
-                        Dom.removeClass(this.warning.id, 'hidden');
-                        
-                        resultWindow.document.write(results_file);
-                        resultWindow.document.close();
-                    }
-                    else {
-                        this.results_file = results_file;
-                        this.renderResultsWindow(resultWindow);
-                    }
+                success: function(obj) {
+                    var data = YAHOO.lang.JSON.parse(obj.responseText);
+                    this.results_file = data.file;
+                    this.renderResultsWindow(resultWindow);
+                    
                 },
-                failure: this.onFailure,
+                failure: function(obj) {
+                   resultWindow.document.write(obj.responseText);
+                   resultWindow.document.close();
+                }, 
                 scope: this
             }, postData);
         }
@@ -566,8 +557,9 @@
             '</form>'; 
           
         resultWindow.document.write(form);
-        resultWindow.document.close();
+        //resultWindow.document.close();
         resultWindow.document.forms.blast_report.submit();         
+        resultWindow.document.close();
     }
     
     YAHOO.Dicty.BLAST.prototype.runNcbiBlast = function() {

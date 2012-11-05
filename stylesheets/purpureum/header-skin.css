@@ -14,7 +14,7 @@
     color           :#fff;
 }
 .yui-skin-sam #container-top #menu-top {
-    width:400px;
+    min-width       :400px;
 }
 .yui-skin-sam #container-top #container-help a{
     color           :#524c81;
