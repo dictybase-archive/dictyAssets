@@ -1,36 +1,3 @@
-/*body {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background: none repeat scroll 0 0 white;
-    font-family: "Lucida Fax";
-	font-size: 15px;
-}
-
-#container {
-	margin: auto;
-	width: 1450px;
-	padding-top: 30px;
-}
-
-#header {
-	margin: auto;
-	background-repeat: no-repeat;
-	padding: 0px;
-	border: 1px;
-}
-
-#uploader {
-	width: 850px;
-	float: left;
-}
-
-#helper {
-	width: 480px;
-	float: right;
-	text-align: left;
-}
-*/
 
 @charset "UTF-8";
 body {
@@ -46,4 +13,10 @@ body {
 
 .btn.active {
     background-color: 00CC33;
+}
+
+
+.tab-content > .active, .pill-content > .active {
+	display: block;
+    margin-top: -1px;
 }
