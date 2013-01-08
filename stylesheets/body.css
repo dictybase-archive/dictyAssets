@@ -370,17 +370,28 @@ td.warning, th.warning {
 	font-weight     :bold;
 	margin          :10px; 
 }
-div#species-image{
-    float:left;
-    font-size:10px;
-    width:20%;
+.species-image-generic {
+    float:left; 
+    width: 30%;
 }
+
 #main-info {
-    width : 75%;
-    padding-right : 10px;
+    width : 65%;
     float : left;
 }
 div#bottom-div{
     clear:both;
     font-size : 11px;
+}
+
+.gap30 {
+	margin-left: 30px;
+}
+
+.top40 {
+	margin-top: 40px;
+}
+
+.phylogeny-image {
+	float : left;
 }

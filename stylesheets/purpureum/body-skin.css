@@ -50,3 +50,8 @@
     background-color: #4E387E;
     color: #FFFFFF;
 }
+
+#species-image img{
+	display : block;
+	margin: auto;
+}
