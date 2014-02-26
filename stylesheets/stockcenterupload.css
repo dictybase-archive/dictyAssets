@@ -1,0 +1,22 @@
+
+@charset "UTF-8";
+body {
+	padding-top: 75px;
+}
+	
+.navbar .brand {
+    max-height: 40px;
+    overflow: visible;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.btn.active {
+    background-color: 00CC33;
+}
+
+
+.tab-content > .active, .pill-content > .active {
+	display: block;
+    margin-top: -1px;
+}
